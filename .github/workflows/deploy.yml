@@ -1,0 +1,27 @@
+name: Deploy
+
+on:
+  push:
+    tags:
+      - '*.*.*'
+
+jobs:
+  Deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: jlumbroso/free-disk-space@main
+        with:
+          tool-cache: false
+          large-packages: false
+          dotnet: false
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - run: ./gradlew :publishPlugin -PBuildConfiguration="Release" -PPluginVersion="${{ github.ref_name }}" -PPublishToken="${{ env.PUBLISH_TOKEN }}"
+        env:
+          PUBLISH_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ${{ github.event.repository.name }}.${{ github.ref_name }}
+          path: output
