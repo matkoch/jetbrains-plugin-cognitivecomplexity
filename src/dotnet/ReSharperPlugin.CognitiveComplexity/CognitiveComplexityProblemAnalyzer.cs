@@ -59,7 +59,7 @@ namespace ReSharperPlugin.CognitiveComplexity
             {
                 consumer.AddHighlighting(new CognitiveComplexityErrorHighlighting(
                     element,
-                    elementProcessor.ComplexityScore - baseThreshold,
+                    elementProcessor.ComplexityScore,
                     complexityPercentage));
             }
             else

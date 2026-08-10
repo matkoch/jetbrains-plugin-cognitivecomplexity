@@ -27,20 +27,20 @@ namespace ReSharperPlugin.CognitiveComplexity
             "The cognitive complexity of the code element exceeds the configured threshold. " +
             "You can configure the thresholds in the Cognitive Complexity options page.";
 
-        public const string ToolTipFormatString = Message + " by {0} ({1}%)";
+        public const string ToolTipFormatString = "Element has a cognitive complexity of {0} ({1}% of threshold)";
 
         public CognitiveComplexityErrorHighlighting(
             ICSharpFunctionDeclaration declaration,
-            int complexityDelta,
+            int complexityAbsolute,
             int complexityPercentage)
         {
             Declaration = declaration;
-            ComplexityDelta = complexityDelta;
+            ComplexityAbsolute = complexityAbsolute;
             ComplexityPercentage = complexityPercentage;
         }
 
         public ICSharpFunctionDeclaration Declaration { get; }
-        public int ComplexityDelta { get; }
+        public int ComplexityAbsolute { get; }
         public int ComplexityPercentage { get; }
 
         public bool IsValid()
@@ -53,7 +53,7 @@ namespace ReSharperPlugin.CognitiveComplexity
             return Declaration.NameIdentifier?.GetHighlightingRange() ?? DocumentRange.InvalidRange;
         }
 
-        public string ToolTip => string.Format(ToolTipFormatString, ComplexityDelta, ComplexityPercentage);
+        public string ToolTip => string.Format(ToolTipFormatString, ComplexityAbsolute, ComplexityPercentage);
 
         public string ErrorStripeToolTip => Declaration.DeclaredName;
     }

@@ -14,7 +14,7 @@ namespace ReSharperPlugin.CognitiveComplexity
     {
         public const string HighlightAttributeId = nameof(CognitiveComplexityInfoHighlighting);
 
-        public const string ToolTipFormatString = "Element has a cognitive complexity of {0} ({1}%)";
+        public const string ToolTipFormatString = "Element has a cognitive complexity of {0} ({1}% of threshold)";
 
         public CognitiveComplexityInfoHighlighting(
             ICSharpFunctionDeclaration declaration,
