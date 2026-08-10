@@ -1,0 +1,14 @@
+<Solution>
+  <Folder Name="/misc/">
+    <File Path="build.gradle.kts" />
+    <File Path="CHANGELOG.md" />
+    <File Path="gradle.properties" />
+    <File Path="README.md" />
+    <File Path="src/dotnet/Directory.Build.props" />
+    <File Path="src/dotnet/Plugin.props" />
+    <File Path="src/rider/main/resources/META-INF/plugin.xml" />
+  </Folder>
+  <Project Path="src/dotnet/ReSharperPlugin.CognitiveComplexity.Tests/ReSharperPlugin.CognitiveComplexity.Tests.csproj" />
+  <Project Path="src/dotnet/ReSharperPlugin.CognitiveComplexity/ReSharperPlugin.CognitiveComplexity.csproj" />
+  <Project Path="src/dotnet/ReSharperPlugin.CognitiveComplexity/ReSharperPlugin.CognitiveComplexity.Rider.csproj" />
+</Solution>

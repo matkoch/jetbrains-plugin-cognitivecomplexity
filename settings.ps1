@@ -1,5 +1,5 @@
 $PluginId = "ReSharperPlugin.CognitiveComplexity"
-$SolutionPath = "$PSScriptRoot\CognitiveComplexity.sln"
+$SolutionPath = "$PSScriptRoot\CognitiveComplexity.slnx"
 $SourceBasePath = "$PSScriptRoot\src\dotnet"
 
 $VsWhereOutput = [xml] (& "$PSScriptRoot\tools\vswhere.exe" -format xml -products *)
